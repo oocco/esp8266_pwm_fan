@@ -1,0 +1,1 @@
+{"wifiConf":{"ssid":"tomato","pwd":"tomato"},"pwmConstValue":[0,40,40],"pwmFanValue":[0,100,300,600,1023],"pwmTempValue":[45,60,70,80]}

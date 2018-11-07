@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PWM Fan Control</title>
+    <style>
+    body, p, h1, h2, h3, h4 ,h5{
+      margin: 0;
+      padding: 0;
+    }
+    .mainTitle{
+      background-color: #eee;
+      padding: 10px;
+      margin: 0;
+    }
+    .formBox, .mainTitle{
+      text-align: center;
+      padding-bottom: 10px;
+    }
+    .subTitle{
+      font-size: 12px;
+      border-top: 1px solid #eee;
+      padding-top: 5px;
+    }
+    .tipBox{
+      width: 100%;
+      padding: 15px 0;
+      text-align: center;
+      color: #fff;
+      background-color: green;
+      position: fixed;
+      bottom: 0;
+    }
+    .hidden{
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h4 class="mainTitle">Set Temperature Value</h4>
+      <form action="/digital" name="setPwm" method="post">
+        <input type="hidden" name="digital" value="setpwm">
+        <div class="formBox">
+          <p class="subTitle">First Temperature</p>
+          <input id="firstTemp" type="number" name="firstTemp" min="0" max="100" required="required" /><label>&deg;C</label>
+          <input id="firstSpeed" type="range" name="firstSpeed" min="0" max="1000" required="required" /><label>%</label>
+        </div>
+        <div class="formBox">
+          <p class="subTitle">Second Temperature</p>
+          <input id="secondTemp" type="number" name="secondTemp" min="0" max="100" required="required" /><label>&deg;C</label>
+          <input id="secondSpeed" type="range" name="secondSpeed" min="0" max="1000" required="required" /><label>%</label>
+        </div>
+        <div class="formBox">
+          <p class="subTitle">three Temperature</p>
+          <input id="threeTemp" type="number" name="threeTemp" min="0" max="100" required="required" /><label>&deg;C</label>
+          <input id="threeSpeed" type="range" name="threeSpeed" min="0" max="1000" required="required" /><label>%</label>
+        </div>
+        <div class="formBox">
+          <p class="subTitle">four Temperature</p>
+          <input id="fourTemp" type="number" name="fourTemp" min="0" max="100" required="required" /><label>&deg;C</label>
+          <input id="fourSpeed" type="range" name="fourSpeed" min="0" max="1000" required="required" /><label>%</label>
+        </div>
+        <div class="formBox">
+          <input id="tClean" type="button"  value="Clean"/>
+          <input class="submitBtn" type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <div>
+      <h4 class="mainTitle">Virtual Temperature</h4>
+      <form action="/digital" name="setTemp" method="post">
+        <input type="hidden" name="digital" value="settemp">
+        <div class="formBox">
+          <label>Switch</label><input id="virtualSwitch" type="checkbox" name="virtualSwitch" onclick="this.value=this.checked?1:0"/>
+          <br>
+          <label>Sensor A: </label><input id="virtualTempA" type="number" name="virtualTempA" min="0" max="100" required="required" /><label>&deg;C</label>
+          <br>
+          <label>Sensor B: </label><input id="virtualTempB" type="number" name="virtualTempB" min="0" max="100" required="required" /><label>&deg;C</label>
+          <br>
+          <input id="virtualSpeed" hidden type="range" name="virtualSpeed" min="0" max="1000" required="required"/>
+        </div>
+        <div class="formBox">
+          <input id="vClean" type="button" value="Clean"/>
+          <input class="submitBtn" type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <div class="tipBox">
+      <p>
+        I'm Message!
+      </p>
+    </div>
+
+  </body>
+</html>
