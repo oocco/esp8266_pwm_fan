@@ -32,6 +32,10 @@ pwm.start(pwmPinB)
 pwm.start(pwmPinC)
 pwm.start(pwmPinD)
 
+dofile("server.lua")
+dofile("temp.lua")
+
+
 --get config file
 function readConfig()
     if file.open("conf.json", "r") then
